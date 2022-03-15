@@ -1,3 +1,8 @@
+/////////////////////////////////////////////////////////////////////////////
+// json defines all of the structures which we use for de-serializing json results
+// from the YNAB API.
+
+/////////////////////////////////////////////////////////////////////////////
 use serde::{Deserialize, Serialize};
 use serde_json::Value; // lets us parse ynab responses to Value type, using from_str
 
@@ -25,7 +30,7 @@ pub struct BudgetJson {
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct TransactionsJson {
-    pub data: TransactionsJsonInner
+    pub data: TransactionsJsonInner,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -38,7 +43,7 @@ pub struct TransactionsJsonInner {
 pub struct TransactionJson {
     pub id: Option<String>,
     pub date: Option<String>,
-    pub amount: Option<i64>,
+    pub amount: Option<f64>,
     pub memo: Option<String>,
     pub cleared: Option<String>,
     pub approved: Option<bool>,

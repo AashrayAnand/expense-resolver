@@ -84,6 +84,7 @@ pub fn test_serde_budgets() {
         }
     }"##.as_bytes();
 
-    let resp_json: BudgetsJson = serde_json::from_slice(&input).unwrap();
+    // Verify we don't thjrow on getting structure from slice
+    let _: BudgetsJson = serde_json::from_slice(&input).unwrap();
 }
 
